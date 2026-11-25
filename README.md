@@ -32,7 +32,8 @@
 | Backend | Node.js built-in `http`, không dùng framework |
 | Frontend | HTML, CSS, JavaScript thuần |
 | API | REST, JSON |
-| Lưu trữ hiện tại | File JSON |
+| Lưu trữ local | File JSON qua Node.js API |
+| Lưu trữ GitHub Pages | `localStorage` của trình duyệt |
 | Thiết kế database nâng cấp | SQLite, khóa ngoại, index, trigger và FTS5 |
 
 ## Chạy local
@@ -56,6 +57,14 @@ PORT=8081 npm start
 Sau đó mở [http://127.0.0.1:8081](http://127.0.0.1:8081).
 
 App cần Node.js server để gọi API và lưu dữ liệu; không mở `public/index.html` trực tiếp bằng `file://`.
+
+## GitHub Pages
+
+Repo được cấu hình tự động deploy thư mục `public/` bằng GitHub Actions mỗi khi có thay đổi trên `main`. Sau khi workflow hoàn tất, mở:
+
+[https://tanquyvo.github.io/tuan06/](https://tanquyvo.github.io/tuan06/)
+
+Trên GitHub Pages, ứng dụng chạy ở chế độ static và lưu task trong `localStorage` của trình duyệt. Dữ liệu này độc lập với `data/tasks.json` khi chạy local và không tự đồng bộ giữa thiết bị hoặc trình duyệt. Muốn đồng bộ nhiều thiết bị, cần kết nối một backend/database được host riêng.
 
 ## Dữ liệu
 
@@ -116,6 +125,8 @@ curl -X POST http://127.0.0.1:8080/api/tasks \
 │   ├── index.html      # Giao diện
 │   └── styles.css      # Theme, responsive và animation
 ├── server.js           # Static server và REST API
+├── .github/workflows/
+│   └── pages.yml        # Tự deploy frontend lên GitHub Pages
 ├── HelloWorld.js       # Entry point tương thích bài thực hành cũ
 └── package.json
 ```

@@ -2,6 +2,8 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 const today = new Date();
 const dateISO = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+const STATIC_MODE = location.hostname.endsWith('github.io');
+const STORAGE_KEY = 'tq-todo-list:tasks:v1';
 const state = { tasks: [], view: 'today', category: null, categories: ['Học tập', 'Dự án', 'Cá nhân'], query: '', suggestions: [], activeSuggestion: 0 };
 let pendingDeleteTask = null;
 const statusNames = { todo: 'Cần làm', 'in-progress': 'Đang làm', done: 'Hoàn thành' };
@@ -21,16 +23,69 @@ function showToast(message) {
   clearTimeout(showToast.timer); showToast.timer = setTimeout(() => toast.classList.remove('show'), 2500);
 }
 async function api(url, options = {}) {
+  if (STATIC_MODE) return staticApi(url, options);
   const response = await fetch(url, { ...options, headers: { 'Content-Type': 'application/json', ...(options.headers || {}) } });
   const body = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(body.error || 'Có lỗi xảy ra, thử lại nhé.');
   return body;
 }
+function readStoredTasks() {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (stored) return JSON.parse(stored);
+  const now = new Date();
+  const starterTasks = [
+    { title: 'Thực hành HTML có sử dụng Animation', description: 'Tạo trang HTML sinh động với keyframes, transition và hiệu ứng chuyển động.', category: 'Học tập', priority: 'high', status: 'done', dueTime: '08:30' },
+    { title: 'Cài đặt Node.js', description: 'Cài Node.js và kiểm tra phiên bản bằng terminal.', category: 'Học tập', priority: 'medium', status: 'done', dueTime: '09:30' },
+    { title: 'Cài đặt để mở trang localhost:8080', description: 'Khởi chạy web server local và kiểm tra trang trên trình duyệt.', category: 'Học tập', priority: 'high', status: 'in-progress', dueTime: '10:30' },
+    { title: 'Thực hành làm Todo App', description: 'Xây dựng ứng dụng quản lý task với giao diện hiện đại và thao tác CRUD.', category: 'Dự án', priority: 'high', status: 'todo', dueTime: '13:30' }
+  ];
+  const tasks = starterTasks.map((task, index) => ({ ...task, id: `sample-${index + 1}`, dueDate: dateISO, createdAt: new Date(now.getTime() - (starterTasks.length - index) * 3600000).toISOString(), updatedAt: now.toISOString() }));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+  return tasks;
+}
+function staticApi(url, options = {}) {
+  const route = new URL(url, location.href);
+  const method = (options.method || 'GET').toUpperCase();
+  if (route.pathname === '/api/health' && method === 'GET') return Promise.resolve({ ok: true, storage: 'browser-localStorage' });
+  if (route.pathname === '/api/tasks' && method === 'GET') {
+    let tasks = readStoredTasks();
+    const date = route.searchParams.get('date');
+    if (date) tasks = tasks.filter(task => task.dueDate === date);
+    return Promise.resolve(tasks.sort((a, b) => (a.dueTime || '').localeCompare(b.dueTime || '')));
+  }
+  if (route.pathname === '/api/tasks' && method === 'POST') {
+    const body = JSON.parse(options.body || '{}');
+    if (!body.title?.trim() || !body.dueDate || !['todo', 'in-progress', 'done'].includes(body.status) || !['low', 'medium', 'high'].includes(body.priority)) return Promise.reject(new Error('Thông tin task chưa hợp lệ.'));
+    const now = new Date().toISOString();
+    const task = { ...body, id: crypto.randomUUID(), title: body.title.trim(), description: String(body.description || '').trim(), createdAt: now, updatedAt: now };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([...readStoredTasks(), task]));
+    return Promise.resolve(task);
+  }
+  const match = route.pathname.match(/^\/api\/tasks\/([\w-]+)$/);
+  if (match) {
+    const tasks = readStoredTasks();
+    const index = tasks.findIndex(task => task.id === match[1]);
+    if (index < 0) return Promise.reject(new Error('Không tìm thấy task.'));
+    if (method === 'PATCH') {
+      const body = JSON.parse(options.body || '{}');
+      const task = { ...tasks[index], ...body, id: tasks[index].id, updatedAt: new Date().toISOString() };
+      tasks[index] = task;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+      return Promise.resolve(task);
+    }
+    if (method === 'DELETE') {
+      const [deleted] = tasks.splice(index, 1);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+      return Promise.resolve(deleted);
+    }
+  }
+  return Promise.reject(new Error('API không tồn tại.'));
+}
 async function loadTasks() {
   try {
     state.tasks = await api('/api/tasks');
     for (const task of state.tasks) if (task.category && !state.categories.includes(task.category)) state.categories.push(task.category);
-    $('#connection-label').textContent = 'Đã kết nối · lưu tự động';
+    $('#connection-label').textContent = STATIC_MODE ? 'Lưu trên trình duyệt' : 'Đã kết nối · lưu tự động';
     $('#connection-label').style.color = '#73d9aa';
   } catch (error) {
     $('#connection-label').textContent = 'Không kết nối được';
