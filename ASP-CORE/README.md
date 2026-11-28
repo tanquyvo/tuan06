@@ -20,5 +20,3 @@ Thư mục này chứa bài tập cá nhân ASP.NET Core MVC theo yêu cầu t�
 2. Cài .NET SDK tương thích với dự án.
 3. Cấu hình connection string riêng trong môi trường local (không commit thông tin xác thực).
 4. Chạy `dotnet restore`, sau đó `dotnet run`.
-
-> Không đưa connection string, mật khẩu, App Password hoặc các thông tin bí mật vào repository công khai. Dùng cấu hình local/secret riêng và file mẫu đã redacted.
