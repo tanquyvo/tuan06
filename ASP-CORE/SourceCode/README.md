@@ -2,7 +2,7 @@
 
 ## 1. Giới thiệu dự án
 
-**Advance Backend - ASP.NET Core MVC** là website quản lý và đặt mua vé phim được xây dựng bằng ASP.NET Core MVC. Dự án được phát triển nhằm áp dụng các kiến thức về xây dựng ứng dụng web, quản lý dữ liệu với Entity Framework Core, xác thực người dùng và triển khai các chức năng quản lý phim cũng như quy trình mua vé.
+**TanQuy Cinema - ASP.NET Core MVC** là website quản lý và đặt mua vé phim được xây dựng bằng ASP.NET Core MVC. Dự án được phát triển nhằm áp dụng các kiến thức về xây dựng ứng dụng web, quản lý dữ liệu với Entity Framework Core, xác thực người dùng và triển khai các chức năng quản lý phim cũng như quy trình mua vé.
 
 Website cung cấp giao diện để người dùng xem danh sách phim, tìm hiểu thông tin phim, quản lý giỏ hàng và thực hiện các thao tác liên quan đến đặt vé. Đồng thời, hệ thống hỗ trợ các chức năng CRUD để quản lý dữ liệu phim và thể loại.
 
@@ -182,6 +182,6 @@ Repository source code: https://github.com/tanquyvo/tuan06
 
 ---
 
-**Author:** Võ Tấn Quý
+**Tác giả:** Võ Tấn Quý
 
 **Project:** Advance Backend - ASP.NET Core MVC
