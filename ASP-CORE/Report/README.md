@@ -4,7 +4,7 @@ Thư mục này lưu **báo cáo kết quả thực hiện** và **ảnh chụp 
 
 ## Cấu trúc thư mục
 
-\`\`\`text
+```text
 Report/
 ├── README.md
 ├── BaiTap_CaNhan_ASP_CORE_LMS.docx
@@ -14,13 +14,13 @@ Report/
     ├── Hình 2.2.png
     ├── ...
     └── Hình 10.9.png
-\`\`\`
+```
 
 ## 1. Báo cáo Word
 
 File báo cáo cần được đặt tên đúng theo yêu cầu đề bài:
 
-\`BaiTap_CaNhan_ASP_CORE_LMS.docx\`
+`BaiTap_CaNhan_ASP_CORE_LMS.docx`
 
 Báo cáo trình bày quá trình xây dựng website TanQuy Cinema bằng ASP.NET Core MVC, bao gồm:
 
@@ -37,14 +37,14 @@ Báo cáo có mục lục chính, mục lục hình ảnh và mục lục bảng
 
 ## 2. Ảnh minh chứng
 
-Đặt ảnh được sử dụng trong báo cáo tại thư mục \`images/\`.
+Đặt ảnh được sử dụng trong báo cáo tại thư mục `images/`.
 
 Quy ước đặt tên ảnh theo số hình trong báo cáo, ví dụ:
 
-- \`Hình 1.1.png\`
-- \`Hình 2.1.png\`
-- \`Hình 5.10.png\`
-- \`Hình 10.9.png\`
+- `Hình 1.1.png`
+- `Hình 2.1.png`
+- `Hình 5.10.png`
+- `Hình 10.9.png`
 
 Tên file nên khớp với chú thích hình tương ứng trong báo cáo để thuận tiện đối chiếu. Có thể sử dụng định dạng PNG hoặc JPG; ưu tiên giữ độ rõ nét và nội dung cần chứng minh.
 
@@ -61,8 +61,8 @@ Tên file nên khớp với chú thích hình tương ứng trong báo cáo đ�
 
 ## 4. Lưu ý khi nộp bài
 
-1. Đảm bảo file Word có tên \`BaiTap_CaNhan_ASP_CORE_LMS.docx\`.
-2. Đảm bảo các ảnh trong \`images/\` tương ứng với chú thích trong báo cáo.
+1. Đảm bảo file Word có tên `BaiTap_CaNhan_ASP_CORE_LMS.docx`.
+2. Đảm bảo các ảnh trong `images/` tương ứng với chú thích trong báo cáo.
 3. Kiểm tra lại mục lục, mục lục hình ảnh, mục lục bảng biểu và số trang sau lần cập nhật cuối.
 4. Không đưa mật khẩu, connection string có thông tin xác thực, App Password hoặc dữ liệu nhạy cảm lên GitHub.
 5. Nộp file Word và các đường dẫn GitHub/website trên LMS theo hướng dẫn của lớp học phần.
