@@ -1,0 +1,1176 @@
+
+/* =========================================================
+   QUY'S MOVIE STORE
+   LUXURY CINEMATIC DESIGN SYSTEM
+========================================================= */
+
+/* ---------- DESIGN TOKENS ---------- */
+
+:root {
+    --lux-black: #0b0b0b;
+    --lux-dark: #141414;
+    --lux-charcoal: #1c1c1c;
+
+    --lux-gold: #c6a56b;
+    --lux-gold-light: #dfc69a;
+
+    --lux-ivory: #f5f1e8;
+    --lux-white: #ffffff;
+
+    --lux-muted: #a7a29a;
+    --lux-border: rgba(198, 165, 107, 0.22);
+
+    --lux-heading: 'Cormorant Garamond', serif;
+    --lux-body: 'Inter', sans-serif;
+}
+
+
+/* ---------- GLOBAL ---------- */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.luxury-body {
+    margin: 0;
+    background: var(--lux-black);
+    color: var(--lux-ivory);
+
+    font-family: var(--lux-body);
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+body.luxury-body * {
+    box-sizing: border-box;
+}
+
+body.luxury-body a {
+    text-decoration: none;
+}
+
+.luxury-main {
+    min-height: 75vh;
+}
+
+
+/* ---------- NAVIGATION ---------- */
+
+.luxury-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(11, 11, 11, 0.94);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid var(--lux-border);
+}
+
+.luxury-navbar {
+    padding: 0;
+}
+
+.luxury-nav-container {
+    width: 100%;
+    max-width: 1500px;
+
+    margin: 0 auto;
+    padding: 18px 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* ---------- BRAND ---------- */
+
+.luxury-brand {
+    display: flex;
+    flex-direction: column;
+
+    color: var(--lux-gold);
+
+    text-decoration: none;
+    line-height: 1;
+}
+
+.brand-main {
+    font-family: var(--lux-heading);
+    font-size: 36px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+}
+
+.brand-sub {
+    margin-top: 5px;
+
+    font-family: var(--lux-body);
+    font-size: 9px;
+
+    letter-spacing: 4px;
+    text-align: center;
+
+    color: var(--lux-ivory);
+}
+
+
+/* ---------- NAV LINKS ---------- */
+
+.luxury-nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex: 1;
+    margin-left: 70px;
+}
+
+.luxury-nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 42px;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.luxury-nav-links a {
+    position: relative;
+
+    color: var(--lux-ivory);
+
+    font-size: 11px;
+    font-weight: 500;
+
+    letter-spacing: 2px;
+
+    transition: color 0.3s ease;
+}
+
+.luxury-nav-links a::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--lux-gold);
+
+    transition: width 0.3s ease;
+}
+
+.luxury-nav-links a:hover {
+    color: var(--lux-gold);
+}
+
+.luxury-nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* ---------- NAV ACTIONS ---------- */
+
+.luxury-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.luxury-icon-link {
+    color: var(--lux-gold);
+
+    display: inline-flex;
+    align-items: center;
+
+    font-size: 26px;
+
+    transition: 0.3s ease;
+}
+
+.luxury-icon-link:hover {
+    color: var(--lux-gold-light);
+    transform: translateY(-2px);
+}
+
+
+/* ---------- LOGIN PARTIAL ---------- */
+
+.luxury-nav-actions .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.luxury-nav-actions a.nav-link,
+.luxury-nav-actions .nav-link,
+.luxury-nav-actions button {
+    color: var(--lux-ivory) !important;
+
+    font-family: var(--lux-body);
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    transition: 0.3s ease;
+}
+
+.luxury-nav-actions a.nav-link:hover,
+.luxury-nav-actions .nav-link:hover {
+    color: var(--lux-gold) !important;
+}
+
+.luxury-nav-actions .btn {
+    background: transparent;
+    border: 1px solid var(--lux-gold);
+
+    color: var(--lux-gold);
+
+    border-radius: 0;
+
+    padding: 8px 18px;
+}
+
+.luxury-nav-actions .btn:hover {
+    background: var(--lux-gold);
+    color: var(--lux-black);
+}
+
+
+/* ---------- MOBILE MENU ---------- */
+
+.luxury-menu-toggle {
+    display: none;
+
+    background: transparent;
+    border: none;
+
+    padding: 8px;
+}
+
+.luxury-menu-toggle span {
+    display: block;
+
+    width: 25px;
+    height: 1px;
+
+    margin: 6px 0;
+
+    background: var(--lux-gold);
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.luxury-footer {
+    background: #101010;
+
+    border-top: 1px solid var(--lux-border);
+
+    padding: 75px 6% 25px;
+}
+
+.luxury-footer-container {
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+
+    gap: 60px;
+
+    padding-bottom: 60px;
+}
+
+
+/* ---------- FOOTER BRAND ---------- */
+
+.luxury-footer-brand {
+    display: inline-block;
+
+    color: var(--lux-gold);
+
+    font-family: var(--lux-heading);
+    font-size: 48px;
+
+    letter-spacing: 5px;
+}
+
+.footer-brand-description {
+    color: var(--lux-ivory);
+
+    font-family: var(--lux-heading);
+    font-size: 24px;
+
+    line-height: 1.35;
+
+    margin-top: 15px;
+}
+
+.footer-brand-english {
+    color: var(--lux-muted);
+
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
+/* ---------- FOOTER COLUMNS ---------- */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.footer-column h4 {
+    color: var(--lux-gold);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.footer-column a {
+    color: var(--lux-muted);
+
+    font-size: 12px;
+
+    transition: 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: var(--lux-gold);
+    padding-left: 5px;
+}
+
+.footer-note p {
+    color: var(--lux-muted);
+
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+
+/* ---------- COPYRIGHT ---------- */
+
+.luxury-footer-bottom {
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.luxury-footer-bottom p {
+    color: #777;
+
+    font-size: 10px;
+    letter-spacing: 1px;
+
+    margin: 0;
+}
+
+
+/* ---------- GENERAL LINKS ---------- */
+
+.luxury-body a {
+    transition: 0.3s ease;
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 992px) {
+
+    .luxury-nav-container {
+        padding: 18px 5%;
+    }
+
+    .luxury-nav-content {
+        margin-left: 0;
+    }
+
+    .luxury-nav-links {
+        gap: 25px;
+    }
+
+    .luxury-footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .luxury-nav-container {
+        flex-wrap: wrap;
+    }
+
+    .luxury-menu-toggle {
+        display: block;
+    }
+
+    .luxury-nav-content {
+        width: 100%;
+        flex-basis: 100%;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding-top: 25px;
+        margin: 0;
+    }
+
+    .luxury-nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 22px;
+
+        width: 100%;
+    }
+
+    .luxury-nav-actions {
+        margin-top: 25px;
+        padding-bottom: 15px;
+    }
+
+    .luxury-footer {
+        padding: 50px 6% 25px;
+    }
+
+    .luxury-footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .luxury-footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .brand-main {
+        font-size: 30px;
+    }
+
+    .luxury-footer-brand {
+        font-size: 40px;
+    }
+
+}
+
+/* =========================================================
+   MAIN CONTENT CONTAINER
+========================================================= */
+
+.luxury-main {
+    width: 100%;
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    padding: 50px 6%;
+}
+
+
+/* =========================================================
+   GLOBAL TYPOGRAPHY
+========================================================= */
+
+.luxury-main h1,
+.luxury-main h2,
+.luxury-main h3,
+.luxury-main h4 {
+    font-family: var(--lux-heading);
+    color: var(--lux-ivory);
+    font-weight: 500;
+}
+
+.luxury-main h1 {
+    font-size: clamp(36px, 5vw, 64px);
+}
+
+.luxury-main h2 {
+    font-size: clamp(28px, 3vw, 42px);
+}
+
+.luxury-main p {
+    color: var(--lux-muted);
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FOOTER BRAND ADJUSTMENT
+========================================================= */
+
+.luxury-footer-brand {
+    font-size: 38px;
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   RESPONSIVE MAIN
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .luxury-main {
+        padding: 35px 5%;
+    }
+
+}
+
+/* =========================================================
+   TANQUY CINEMA — MOVIE COLLECTION
+========================================================= */
+
+
+/* ---------- HERO ---------- */
+
+.cinema-hero {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 90px 0;
+
+    border-bottom: 1px solid var(--lux-border);
+
+    background:
+        radial-gradient(
+            ellipse at 80% 40%,
+            rgba(198, 165, 107, 0.12),
+            transparent 50%
+        ),
+        linear-gradient(
+            120deg,
+            #0b0b0b 0%,
+            #141414 65%,
+            #101010 100%
+        );
+}
+
+
+.cinema-hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+}
+
+
+.cinema-eyebrow,
+.cinema-section-eyebrow {
+    display: inline-block;
+
+    color: var(--lux-gold);
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    margin-bottom: 22px;
+}
+
+
+.cinema-hero h1 {
+    font-family: var(--lux-heading);
+
+    font-size: clamp(45px, 6vw, 84px);
+    font-weight: 400;
+
+    line-height: 1.08;
+
+    color: var(--lux-ivory);
+
+    margin: 0;
+}
+
+
+.cinema-hero h1 span {
+    color: var(--lux-gold);
+    font-style: italic;
+}
+
+
+.cinema-hero-description {
+    max-width: 550px;
+
+    margin-top: 25px;
+
+    color: var(--lux-muted);
+
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+
+.cinema-hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+
+    margin-top: 35px;
+
+    padding: 15px 25px;
+
+    border: 1px solid var(--lux-gold);
+
+    color: var(--lux-gold);
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 2px;
+
+    transition: all 0.35s ease;
+}
+
+
+.cinema-hero-button:hover {
+    background: var(--lux-gold);
+    color: var(--lux-black);
+}
+
+
+.cinema-hero-button span {
+    font-size: 16px;
+}
+
+
+.cinema-hero-decoration {
+    position: absolute;
+
+    right: 4%;
+    bottom: 30px;
+
+    color: rgba(198, 165, 107, 0.15);
+
+    font-family: var(--lux-heading);
+    font-size: clamp(40px, 8vw, 120px);
+
+    letter-spacing: 10px;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+}
+
+
+/* ---------- COLLECTION ---------- */
+
+.cinema-collection-section {
+    padding: 80px 0 100px;
+}
+
+
+.cinema-collection-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 45px;
+}
+
+
+.cinema-collection-heading h2 {
+    font-family: var(--lux-heading);
+
+    font-size: 54px;
+    font-weight: 400;
+
+    margin: 0;
+
+    color: var(--lux-ivory);
+}
+
+
+.cinema-collection-heading p {
+    color: var(--lux-muted);
+
+    font-size: 13px;
+
+    margin-top: 12px;
+}
+
+
+.cinema-add-movie {
+    display: inline-block;
+
+    padding: 12px 18px;
+
+    border: 1px solid var(--lux-border);
+
+    color: var(--lux-gold);
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+}
+
+
+.cinema-add-movie:hover {
+    border-color: var(--lux-gold);
+    background: var(--lux-gold);
+
+    color: var(--lux-black);
+}
+
+
+/* ---------- MOVIE GRID ---------- */
+
+.cinema-movie-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 35px 25px;
+}
+
+
+/* ---------- MOVIE CARD ---------- */
+
+.cinema-movie-card {
+    min-width: 0;
+
+    background: transparent;
+
+    transition: transform 0.35s ease;
+}
+
+
+.cinema-movie-card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* ---------- POSTER ---------- */
+
+.cinema-poster-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background: var(--lux-dark);
+
+    aspect-ratio: 2 / 3;
+}
+
+
+.cinema-movie-poster {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+
+.cinema-movie-card:hover .cinema-movie-poster {
+    transform: scale(1.05);
+}
+
+
+.cinema-poster-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.85),
+            transparent 60%
+        );
+
+    opacity: 0;
+
+    transition: opacity 0.35s ease;
+}
+
+
+.cinema-movie-card:hover .cinema-poster-overlay {
+    opacity: 1;
+}
+
+
+.cinema-view-button {
+    width: 100%;
+
+    padding: 13px 10px;
+
+    text-align: center;
+
+    color: var(--lux-gold);
+
+    border: 1px solid var(--lux-gold);
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    transition: 0.3s ease;
+}
+
+
+.cinema-view-button:hover {
+    background: var(--lux-gold);
+
+    color: var(--lux-black);
+}
+
+
+/* ---------- MOVIE DETAILS ---------- */
+
+.cinema-movie-info {
+    padding-top: 20px;
+}
+
+
+.cinema-movie-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+
+.cinema-movie-genre {
+    color: var(--lux-gold);
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.cinema-movie-rated {
+    color: var(--lux-muted);
+
+    font-size: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    padding: 3px 8px;
+}
+
+
+.cinema-movie-title {
+    margin-top: 12px;
+    margin-bottom: 10px;
+
+    font-family: var(--lux-heading);
+
+    font-size: 28px;
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    color: var(--lux-ivory);
+}
+
+
+.cinema-movie-summary {
+    color: var(--lux-muted);
+
+    font-size: 12px;
+    line-height: 1.8;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+
+    min-height: 65px;
+}
+
+
+.cinema-movie-bottom {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.cinema-movie-price {
+    color: var(--lux-gold);
+
+    font-family: var(--lux-heading);
+
+    font-size: 27px;
+    font-weight: 500;
+}
+
+
+.cinema-movie-price span {
+    font-family: var(--lux-body);
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+.cinema-add-cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 13px 15px;
+
+    color: var(--lux-ivory);
+
+    border: 1px solid rgba(198, 165, 107, 0.35);
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    transition: 0.3s ease;
+}
+
+
+.cinema-add-cart:hover {
+    background: var(--lux-gold);
+
+    color: var(--lux-black);
+
+    border-color: var(--lux-gold);
+}
+
+
+.cinema-cart-arrow {
+    font-size: 17px;
+}
+
+
+/* ---------- BRAND STATEMENT ---------- */
+
+.cinema-brand-statement {
+    position: relative;
+
+    text-align: center;
+
+    padding: 100px 10%;
+
+    margin-top: 30px;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(198, 165, 107, 0.08),
+            transparent 70%
+        );
+
+    border-top: 1px solid var(--lux-border);
+    border-bottom: 1px solid var(--lux-border);
+}
+
+
+.cinema-brand-statement h2 {
+    font-family: var(--lux-heading);
+
+    font-size: clamp(35px, 5vw, 65px);
+
+    font-weight: 400;
+
+    line-height: 1.2;
+
+    color: var(--lux-ivory);
+}
+
+
+.cinema-brand-statement h2 span {
+    color: var(--lux-gold);
+
+    font-style: italic;
+}
+
+
+.cinema-brand-statement p {
+    max-width: 600px;
+
+    margin: 25px auto 0;
+
+    color: var(--lux-muted);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* ---------- EMPTY STATE ---------- */
+
+.cinema-empty-state {
+    text-align: center;
+
+    padding: 80px 20px;
+}
+
+
+.cinema-empty-state h3 {
+    font-family: var(--lux-heading);
+
+    font-size: 40px;
+
+    color: var(--lux-gold);
+}
+
+
+.cinema-empty-state p {
+    color: var(--lux-muted);
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1200px) {
+
+    .cinema-movie-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .cinema-movie-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cinema-hero-decoration {
+        font-size: 70px;
+    }
+
+}
+
+
+@media (max-width: 767px) {
+
+    .cinema-hero {
+        min-height: 400px;
+
+        padding: 60px 0;
+    }
+
+    .cinema-hero-decoration {
+        font-size: 35px;
+
+        letter-spacing: 5px;
+    }
+
+    .cinema-collection-section {
+        padding: 50px 0;
+    }
+
+    .cinema-collection-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .cinema-collection-heading h2 {
+        font-size: 42px;
+    }
+
+    .cinema-movie-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 30px 15px;
+    }
+
+    .cinema-movie-title {
+        font-size: 22px;
+    }
+
+    .cinema-movie-summary {
+        font-size: 11px;
+    }
+
+    .cinema-brand-statement {
+        padding: 60px 5%;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .cinema-movie-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* LOGIN & REGISTER SPACING */
+
+.luxury-nav-actions .navbar-nav {
+    gap: 18px;
+}
+
+.luxury-nav-actions .nav-item {
+    margin: 0 5px;
+}
+
+.luxury-nav-actions .nav-link {
+    padding: 8px 5px !important;
+}

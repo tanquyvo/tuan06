@@ -1,0 +1,54 @@
+# macOS
+.DS_Store
+
+# Build
+bin/
+obj/
+
+# Local database
+app.db
+app.db-shm
+app.db-wal
+
+# Local configuration
+appsettings.Development.json
+
+# Deployment artifacts
+publish/
+publish.zip
+
+# Local secrets and environment files
+.env
+.env.*
+appsettings.Local.json
+
+# Deployment folders
+publish_somee/
+publish_somee_single/
+deploy/
+deploy_win/
+publish/
+
+# IDE and temporary files
+.vs/
+*.user
+*.suo
+*.log
+logs/
+
+# Production and local secrets
+appsettings.Production.json
+appsettings.Local.json
+secrets.json
+.env
+.env.*
+
+# Local databases
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# macOS
+.DS_Store

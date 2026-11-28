@@ -1,0 +1,205 @@
+
+@model IEnumerable<_31241023037_VoTanQuy.Models.Movie>
+
+@{
+    ViewData["Title"] = "The Collection";
+}
+
+<!-- =====================================================
+     CINEMATIC HERO
+===================================================== -->
+
+<section class="cinema-hero">
+
+    <div class="cinema-hero-content">
+
+        <span class="cinema-eyebrow">
+            A COLLECTION FOR CINEMA LOVERS
+        </span>
+
+        <h1>
+            Trải nghiệm điện ảnh,<br />
+            <span>nâng tầm cuộc sống!</span>
+        </h1>
+
+        <p class="cinema-hero-description">
+            Discover timeless stories, extraordinary worlds
+            and films worth keeping.
+        </p>
+
+        <a href="#movie-collection" class="cinema-hero-button">
+            EXPLORE THE COLLECTION
+            <span>→</span>
+        </a>
+
+    </div>
+
+    <div class="cinema-hero-decoration">
+        <span>TANQUY CINEMA</span>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     COLLECTION INTRODUCTION
+===================================================== -->
+
+<section class="cinema-collection-section" id="movie-collection">
+
+    <div class="cinema-collection-heading">
+
+        <div>
+
+            <span class="cinema-section-eyebrow">
+                THE ART OF CINEMA
+            </span>
+
+            <h2>
+                The Collection
+            </h2>
+
+            <p>
+                A curated selection of stories that stay with you.
+            </p>
+
+        </div>
+
+        <a asp-action="Create" class="cinema-add-movie">
+            + ADD A MOVIE
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         MOVIE GRID
+    ================================================== -->
+
+    <div class="cinema-movie-grid">
+
+        @foreach (var item in Model)
+        {
+            <article class="cinema-movie-card">
+
+                <!-- POSTER -->
+
+                <div class="cinema-poster-wrapper">
+
+                    <img src="@item.PicturePath"
+                         alt="@item.Title"
+                         class="cinema-movie-poster" />
+
+                    <div class="cinema-poster-overlay">
+
+                        <a asp-action="Details"
+                           asp-route-id="@item.ID"
+                           class="cinema-view-button">
+                            VIEW DETAILS
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MOVIE INFORMATION -->
+
+                <div class="cinema-movie-info">
+
+                    <div class="cinema-movie-meta">
+
+                        <span class="cinema-movie-genre">
+                            @(item.GenreObj?.Name ?? "Cinema")
+                        </span>
+
+                        <span class="cinema-movie-rated">
+                            @item.Rated
+                        </span>
+
+                    </div>
+
+
+                    <h3 class="cinema-movie-title">
+                        @item.Title
+                    </h3>
+
+
+                    <p class="cinema-movie-summary">
+                        @item.Summary
+                    </p>
+
+
+                    <div class="cinema-movie-bottom">
+
+                        <div class="cinema-movie-price">
+                            @item.Price.ToString("N0")
+                            <span>VND</span>
+                        </div>
+
+
+                        <a asp-action="AddToCart"
+                           asp-route-id="@item.ID"
+                           class="cinema-add-cart">
+
+                            <span>ADD TO CART</span>
+                            <span class="cinema-cart-arrow">→</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+        }
+
+    </div>
+
+
+    <!-- =================================================
+         EMPTY COLLECTION
+    ================================================== -->
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="cinema-empty-state">
+
+            <h3>The collection is waiting.</h3>
+
+            <p>
+                Add your first movie to begin building your collection.
+            </p>
+
+            <a asp-action="Create" class="cinema-hero-button">
+                ADD YOUR FIRST MOVIE →
+            </a>
+
+        </div>
+    }
+
+</section>
+
+
+<!-- =====================================================
+     BRAND STATEMENT
+===================================================== -->
+
+<section class="cinema-brand-statement">
+
+    <span class="cinema-section-eyebrow">
+        OUR PHILOSOPHY
+    </span>
+
+    <h2>
+        Cinema is not merely watched.<br />
+        <span>It is experienced.</span>
+    </h2>
+
+    <p>
+        From unforgettable stories to timeless masterpieces,
+        we believe every film deserves to be experienced
+        beyond the screen.
+    </p>
+
+</section>

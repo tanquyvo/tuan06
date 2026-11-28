@@ -1,0 +1,247 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] | TanQuy Cinema</title>
+
+    <script type="importmap"></script>
+
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Existing project stylesheet -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!-- Luxury Store Design -->
+    <link rel="stylesheet" href="~/css/luxury-store.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/_31241023037_VoTanQuy.styles.css" asp-append-version="true" />
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet" />
+</head>
+
+<body class="luxury-body">
+
+    <!-- NAVIGATION -->
+    <header class="luxury-header">
+        <nav class="luxury-navbar">
+
+            <div class="luxury-nav-container">
+
+                <!-- BRAND -->
+                <a class="luxury-brand"
+                   asp-controller="Movies"
+                   asp-action="Index">
+
+                    <span class="brand-main">TANQUY</span>
+                    <span class="brand-sub">CINEMA</span>
+
+                </a>
+
+                <!-- MOBILE MENU BUTTON -->
+                <button class="luxury-menu-toggle"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#luxuryNav"
+                        aria-controls="luxuryNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+                <!-- NAVIGATION LINKS -->
+                <div class="navbar-collapse collapse show luxury-nav-content"
+                    id="luxuryNav">
+
+                    <ul class="luxury-nav-links">
+
+                        <li>
+                            <a asp-controller="Home"
+                               asp-action="Index">
+                                HOME
+                            </a>
+                        </li>
+
+                        <li>
+                            <a asp-controller="Movies"
+                               asp-action="Index">
+                                COLLECTION
+                            </a>
+                        </li>
+
+                        <li>
+                            <a asp-controller="Home"
+                               asp-action="Privacy">
+                                ABOUT
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <!-- ACTIONS -->
+                    <div class="luxury-nav-actions">
+
+                        <a asp-controller="Movies"
+                           asp-action="Index"
+                           class="luxury-icon-link"
+                           title="Explore movies">
+
+                            <span class="nav-icon">⌕</span>
+
+                        </a>
+
+                        <partial name="_LoginPartial" />
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="luxury-main">
+
+        @RenderBody()
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="luxury-footer">
+
+        <div class="luxury-footer-container">
+
+            <!-- BRAND -->
+            <div class="footer-brand-section">
+
+                <a asp-controller="Movies"
+                asp-action="Index"
+                class="luxury-footer-brand">
+
+                    TANQUY CINEMA
+
+                </a>
+
+                <p class="footer-brand-description">
+                    Trải nghiệm điện ảnh,<br />
+                    nâng tầm cuộc sống!
+                </p>
+
+                <p class="footer-brand-english">
+                    Experience cinema. Elevate your lifestyle.
+                </p>
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+            <div class="footer-column">
+
+                <h4>EXPLORE</h4>
+
+                <a asp-controller="Home"
+                   asp-action="Index">
+                    Home
+                </a>
+
+                <a asp-controller="Movies"
+                   asp-action="Index">
+                    Movie Collection
+                </a>
+
+                <a asp-controller="Home"
+                   asp-action="Privacy">
+                    About Us
+                </a>
+
+            </div>
+
+
+            <!-- CUSTOMER -->
+            <div class="footer-column">
+
+                <h4>YOUR EXPERIENCE</h4>
+
+                <a asp-controller="Movies"
+                   asp-action="Index">
+                    Discover Movies
+                </a>
+
+                <a asp-controller="Movies"
+                   asp-action="Summary">
+                    Shopping Cart
+                </a>
+
+                <a asp-area="Identity"
+                   asp-page="/Account/Login">
+                    My Account
+                </a>
+
+            </div>
+
+
+            <!-- BRAND STATEMENT -->
+            <div class="footer-column footer-note">
+
+                <h4>OUR PHILOSOPHY</h4>
+
+                <p>
+                    More than a movie.
+                    A story worth keeping.
+                </p>
+
+                <p>
+                    Curated for those who see cinema
+                    as more than entertainment.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+        <div class="luxury-footer-bottom">
+
+            <p>
+                &copy; @DateTime.Now.Year – 31241023037 – Võ Tấn Quý
+            </p>
+
+            <p>
+                MADE FOR CINEMA LOVERS
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- SCRIPTS -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
