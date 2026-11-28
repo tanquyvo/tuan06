@@ -176,7 +176,7 @@ Các thành phần liên quan đến dữ liệu nằm trong thư mục `Data/`,
 
 Website đã được triển khai trên Somee.
 
-Website: https://tanquycinema.somee.com
+Website: http://tanquycinema.somee.com
 
 Repository source code: https://github.com/tanquyvo/tuan06
 
